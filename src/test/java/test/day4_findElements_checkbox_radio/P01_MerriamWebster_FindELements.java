@@ -48,7 +48,5 @@ public class P01_MerriamWebster_FindELements {
 
         //  6. Print out how many total link
         System.out.println("Total links of the page: " +listOfLinks.size());
-
-
     }
 }
