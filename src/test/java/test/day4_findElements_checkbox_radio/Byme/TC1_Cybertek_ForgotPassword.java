@@ -1,4 +1,4 @@
-package test.day4_.Byme;
+package test.day4_findElements_checkbox_radio.Byme;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
