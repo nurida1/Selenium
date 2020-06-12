@@ -13,11 +13,14 @@ public class CssSelectorExample {
         //Search Amazon
         //1.Open browser
         WebDriver driver = WebDriverFactory.getDriver("Chrome");
+
         //2. Go to https://amazon.com
         driver.get("https://amazon.com");
+
         //3. Enter any search term (use cssSelector to locate search box)
         WebElement amazonSearch = driver.findElement(By.cssSelector("input[tabindex = '19']"));
         amazonSearch.sendKeys("wooden spoon" + Keys.ENTER);
+
         //4. Verify title contains the search term
         String actualTitle = driver.getTitle();
         String expectedInTitle = "wooden spoon";

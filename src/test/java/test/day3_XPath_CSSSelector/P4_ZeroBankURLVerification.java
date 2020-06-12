@@ -22,6 +22,7 @@ public class P4_ZeroBankURLVerification {
         // 3.Get attribute value of href from the “forgot your password”link
        //WebElement forgotPasswordLink = driver.findElement(By.linkText("Forgot your password ?"));
         WebElement forgotPasswordLink = driver.findElement(By.partialLinkText("Forgot"));
+
         // 4.Verify attribute value contains
         // Expected: “/forgot-password.html”
         // SOLUTION: NEXT PAGE.
