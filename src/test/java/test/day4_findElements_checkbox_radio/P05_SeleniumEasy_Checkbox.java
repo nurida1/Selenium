@@ -32,14 +32,14 @@ public class P05_SeleniumEasy_Checkbox {
         }
 
 //        4. Click to checkbox under “Single Checkbox Demo” section
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         successCheckbox.click();
 
 //        5. Verify “Success – Check box is checked” message is displayed.
         if (successCheckbox.isSelected() && successMessage.isDisplayed()) {
-            System.out.println("Success - Check box is checked and message is displayed. Verification PASSED!");
+            System.out.println("Success message is displayed.PASSED!");
         }else {
-            System.out.println("Success - Check box is checked and message is displayed. Verification FAILED!");
+            System.out.println("Success message is displayed.FAILED!");
 
         }
 

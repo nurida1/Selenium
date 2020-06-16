@@ -1,6 +1,7 @@
 package test.day4_findElements_checkbox_radio.Byme;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utilities.WebDriverFactory;
@@ -29,22 +30,31 @@ public class TC2_Cybertek_AddRemoveElements_WebElement {
 
         //4. Verify “Delete” button is displayed after clicking.
        WebElement deleteButton =  driver.findElement(By.xpath("//button[@onclick='deleteElement()']"));
-       deleteButton.isDisplayed();
+       //deleteButton.isDisplayed();
        // driver.findElement(By.xpath("//button[.='Delete']"));
         //driver.findElement(By.xpath("//button[contains(@onclick,deleteElement)]"));
+        if (deleteButton.isDisplayed()){
+            System.out.println("Delete button is displayed. Verification passed!");
+        }else{
+            System.out.println("Delete button is NOT displayed. Verification failed!");
+        }
 
         //5. Click to “Delete” button.
-        deleteButton.click();
 
         //6. Verify “Delete” button is NOT displayed after clicking.
 
-        WebElement deleteButtonNotDisplayed = driver.findElement(By.xpath("//div[@id='elements']"));
-       if (deleteButtonNotDisplayed.isDisplayed()) {
-           System.out.println("Delete button is not displayed, PASS!");
-       }else {
-           System.out.println("Delete button is NOT displayed, FAIL");
-       }
-
+        try {
+            deleteButton.click();
+            if (!deleteButton.isDisplayed()){
+                System.out.println("Delete button is NOT displayed after clicking. PASS!");
+            }else{
+                System.out.println("Delete button is displayed after clicking. FAILED!");
+            }
+        }catch (StaleElementReferenceException exception){
+            System.out.println("StaleElementException has been thrown.");
+            System.out.println("It means element has been completely deleted from the HTML.");
+            System.out.println("Delete button is not displayed. Verification PASSED!");
+        }
 
     }
 

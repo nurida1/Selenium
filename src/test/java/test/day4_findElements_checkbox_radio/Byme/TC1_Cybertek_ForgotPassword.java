@@ -47,47 +47,15 @@ public class TC1_Cybertek_ForgotPassword {
 
 
         //4. Verify all WebElements are displayed.
-        //a. “Home” link
-        if (homeLink.isDisplayed()) {
-            System.out.println("Home link is displayed on the page. PASS!");
-        } else {
-            System.out.println("Home link is displayed on the page. FAIL!");
+        if(homeLink.isDisplayed() && forgotPasswordHeader.isDisplayed()
+                && emailText.isDisplayed() && emailInputBox.isDisplayed()
+                && retrievePasswordButton.isDisplayed() && cybertekSchoolText.isDisplayed()){
+            System.out.println("All of the webElements are displayed. PASS!");
+        }else{
+            System.out.println("One or more of the web elements are not displayed. FAIL!");
         }
 
-        //b. “Forgot password” header
-        if (forgotPasswordHeader.isDisplayed()) {
-            System.out.println("Forgot password header is displayed. PASS!");
-        }else {
-            System.out.println("Forgot password header is displayed. FAIL!");
-        }
 
-        //c. “E-mail” text
-        if (emailText.isDisplayed()) {
-            System.out.println("Email text is displayed. PASS!");
-        }else {
-            System.out.println("Email text is displayed. FAIL!");
-        }
-
-        //d. E-mail input box
-        if (emailInputBox.isDisplayed()) {
-            System.out.println("Email input box is displayed. PASS!");
-        }else {
-            System.out.println("Email input box is displayed. FAIL!");
-        }
-
-        // e. “Retrieve password” button
-        if (retrievePasswordButton.isDisplayed()) {
-            System.out.println("Retrieve password button is displayed. PASS!");
-        }else {
-            System.out.println("Retrieve password button is displayed. FAIL!");
-        }
-
-        // f. “Powered by Cybertek School” text
-        if (cybertekSchoolText.isDisplayed()) {
-            System.out.println("Powered by Cybertek School is displayed. PASS!");
-        }else {
-            System.out.println("Powered by Cybertek School is displayed. FAIL!");
-        }
     }
 
 }
