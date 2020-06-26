@@ -57,21 +57,19 @@ PRACTICE #4: Method: verifyOrder
 
     public static void printNamesAndCities (WebDriver driver) {
 
-        List<WebElement> names = driver.findElements(By.xpath("//td[2]" ) );
-        List<WebElement> cities = driver.findElements(By.xpath("//td[7]") );
+        List<WebElement> names = driver.findElements(By.xpath("//table[@class = 'SampleTable']//td[2]" ) );
+        List<WebElement> cities = driver.findElements(By.xpath("//table[@class = 'SampleTable']//td[7]") );
 
         int count = 1;
+        int i = 0;
         for (WebElement each : names) {
+            System.out.println("Name" +count+": " + each.getText() + ", " + ("City" + count+": "+cities.get(i).getText()) );
             count ++;
-            System.out.println("Name" +count+": " + each.getText());
+            i++;
         }
 
     }
-
-
-
-
-    }
+}
 
 
 

@@ -1,4 +1,4 @@
-package test.day8_.Home_work;
+package test.day8_alerts_iframes_windows.Home_work;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeMethod;
@@ -21,7 +21,6 @@ public class P5_printNamesAndCities {
     WebDriver driver;
 
     @BeforeMethod
-
     public void setUp() {
         driver = WebDriverFactory.getDriver("chrome");
         driver.get("http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx");
