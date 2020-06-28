@@ -26,12 +26,12 @@ Mini-Task: • Create a method called loginToSmartBear
 
     }
 /*
-PRACTICE #4: Method: verifyOrder
-• Create a method named verifyOrder in SmartBearUtils class.
+
 • Method takes WebDriver object and String(name).
 •Method should verify if given name exists in orders.
 • This method should simply accepts a name(String), and assert whether given name is in the list or not.
  */
+    /*
     public static void verifyOrder(WebDriver driver, String name) {
        List<WebElement> names = driver.findElements(By.xpath("//div//td[2]"));
         String actualName = "";
@@ -43,8 +43,22 @@ PRACTICE #4: Method: verifyOrder
             }
         }
           Assert.assertTrue(actualName.equals(expectedName));
-
       }
+     */
+
+    public static void verifyOrder (WebDriver driver, String name) {
+        List<WebElement> namesList = driver.findElements(By.xpath("//table[@id='ctl00_MainContent_orderGrid']//tr/td[2]"));
+
+        //iter command
+        for (WebElement each : namesList) {
+            if (each.getText().equals(name)) {
+                Assert.assertTrue(true);
+                return; //exit the whole method
+                }
+        }
+        Assert.fail("The name does not exist in the list! Verification failed!");
+
+    }
 
 //Practice #5: Method: printNamesAndCities
 // • Create a method named printNamesAndCities in SmartBearUtils class.
@@ -54,7 +68,7 @@ PRACTICE #4: Method: verifyOrder
 // • Output should be like:
 // • Name1: name , City1: city
 // • Name2: name , City2: city
-
+/*
     public static void printNamesAndCities (WebDriver driver) {
 
         List<WebElement> names = driver.findElements(By.xpath("//table[@class = 'SampleTable']//td[2]" ) );
@@ -69,6 +83,27 @@ PRACTICE #4: Method: verifyOrder
         }
 
     }
+    */
+    public static void printNamesAndCities(WebDriver driver) {
+        //The list where we store all the names in the web table
+        List<WebElement> namesList = driver.findElements(By.xpath("//table[@id='ctl00_MainContent_orderGrid']//tr/td[2]"));
+
+        //The list where we store all the cities in the web table
+        List<WebElement> citiesList = driver.findElements(By.xpath("//table[@id='ctl00_MainContent_orderGrid']//tr/td[7]"));
+
+        //Instead of creating for-each loop, we will create regular for loop
+        //because we can use the int i index number to get both names and cities values
+
+        int count = 0;
+        for (int i =0; i<namesList.size(); i++) {
+            System.out.println("Name " + namesList.get(i).getText() +", Cities: " + citiesList.get(i).getText());
+
+        }
+
+    }
+
+
+
 }
 
 
