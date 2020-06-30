@@ -102,7 +102,26 @@ Mini-Task: • Create a method called loginToSmartBear
 
     }
 
+    //TC #11 : Create a method called removeName()
+    // 1. Accepts two parameters: WebDriver, String name
+    // 2. Method will remove the given name from the list of Smartbear
+    // 3. Create a new TestNG test, and call your method.
+    // 4. Assert that your method removed the given name
 
+    public static void removeName(WebDriver driver, String name) {
+        List<WebElement> namesList = driver.findElements(By.xpath("//table[@id='ctl00_MainContent_orderGrid']//tr/td[2]"));
+        List<WebElement> checkBox = driver.findElements(By.xpath("//table[@id='ctl00_MainContent_orderGrid']//tr/td[1]"));
+        WebElement delete = driver.findElement(By.xpath("//input[@id='ctl00_MainContent_btnDelete']"));
+
+        for (int i = 0; i < namesList.size(); i++) {
+            if (namesList.get(i).getText().equalsIgnoreCase(name)) {
+                checkBox.get(i).click();
+                delete.click();
+                return;
+            }
+        }
+
+    }
 
 }
 
