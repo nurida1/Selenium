@@ -18,9 +18,9 @@ public class JavaScriptExecutorPractices {
 
         JavascriptExecutor javaScriptExecutor = (JavascriptExecutor)Driver.getDriver();
 
+
         Thread.sleep(4000);
         javaScriptExecutor.executeScript("arguments[0].scrollIntoView(true);", cybertekSchoolLink );
-
 
 
     }
